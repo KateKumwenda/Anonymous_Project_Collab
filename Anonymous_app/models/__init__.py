@@ -1,4 +1,3 @@
-# db.py
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+from .tip import Tip
+

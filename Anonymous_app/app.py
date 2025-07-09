@@ -1,24 +1,21 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import  Flask, render_template, request, redirect, url_for
 import json
 from datetime import datetime
 from flask import session
 import os
 from werkzeug.utils import secure_filename
-from models import db
+from extensions import db
+from flask_migrate import Migrate
 
-
+                  
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tips.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
-
 db.init_app(app)
 
-with app.app_context():
-     db.create_all()
-
-
+migrate= Migrate(app,db)
 
 
 @app.route('/')
@@ -35,7 +32,7 @@ def submit_tip():
         date= request.form.get('date')
         people = request.form.get('people')
         tip_category = request.form.get('tip_category')
-        description = request.form.get('description')
+        text= request.form.get('text')
         file = request.files.get('file')
         filename = None
 
@@ -52,7 +49,7 @@ def submit_tip():
             date=date,
             people=people,
             tip_category=tip_category,
-            description=description,
+            text=text,
             file=filename,
             timestamp=datetime.now()
         )
@@ -100,5 +97,6 @@ def admin_dashboard():
 
 if __name__ == '__main__':
     with app.app_context():
+        from extensions import db
         db.create_all()
     app.run(debug=True, port=5001)
