@@ -66,10 +66,10 @@ flask run --port=5001
 -🔍 Search & filtering options in admin view
 
 # Authors
-Kate Kumwenda
-Perpetual Judith Chawanje
-Hanifa Makunganya
-Mandinda Phiri
+- Kate Kumwenda
+- Perpetual Judith Chawanje
+- Hanifa Makunganya
+- Mandinda Phiri
 
 
 
