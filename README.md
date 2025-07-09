@@ -1,6 +1,27 @@
 # Anonymous_Project_Collab
 This application allows users to anonymously report suspected cases of corruption in their communities. Users can submit details such as the type of corruption, location, people involved and any evidence. The system stores and organises these reports for review by anti-corruption teams, helping promote transparency.
 ---
+# Project Structure
+Anonymous_Project_Collab/
+├── Anonymous_app/
+│ ├── app.py
+│ ├── extensions.py
+│ ├── models/
+│ │ ├── init.py
+│ │ └── tip.py
+│ ├── templates/
+│ │ ├── tips_form.html
+│ │ └── admin_dashboard.html
+| | |__admin_login.html
+| | |__base.html
+| | |__ index.html
+| | 
+│ └── static/
+│ └── uploads/
+├── migrations/
+├── requirements.txt
+├── README.md
+|--env
 
 ## 🚀 Features
 
