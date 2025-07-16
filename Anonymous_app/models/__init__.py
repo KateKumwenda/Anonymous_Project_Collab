@@ -1,3 +1,0 @@
-
-from .tip import Tip
-
