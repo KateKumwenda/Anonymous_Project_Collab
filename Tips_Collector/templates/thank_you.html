@@ -1,0 +1,17 @@
+from flask import Flask, render_template, request, redirect
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('submit_tip.html')
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    tip = request.form['tip']
+    # Save to file, DB, or log it here
+    print(f"Tip received: {tip}")
+    return render_template('thank_you.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)

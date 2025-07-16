@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Submit a Tip{% endblock %}
+
+{% block content %}
+<div class="container mt-4 mb-5">
+    <div class="card shadow-lg border-0 rounded">
+        <div class="card-body p-4">
+            <h2 class="card-title mb-3 text-center">
+                <i class="bi bi-shield-lock-fill text-primary"></i> Submit a Tip Anonymously
+            </h2>
+            <p class="text-muted text-center mb-4">
+                Your submission is <strong>100% anonymous</strong> and confidential. We do not collect any personal data.
+            </p>
+
+            <form method="POST" action="{{ url_for('submit_tip') }}" enctype="multipart/form-data" novalidate>
+                
+                <!-- Tip Text -->
+                <div class="mb-3">
+                    <label for="tip" class="form-label">Your Tip <span class="text-danger">*</span></label>
+                    <textarea name="tip" id="tip" class="form-control" rows="6" required placeholder="Describe what happened..."></textarea>
+                </div>
+
+                <!-- Location Field -->
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location <span class="text-danger">*</span></label>
+                    <input type="text" name="location" id="location" class="form-control" required placeholder="Where did it happen? (e.g. Lilongwe, Mzuzu)">
+                </div>
+
+                <!-- Category Field -->
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
+                    <select name="category" id="category" class="form-select" required>
+                        <option value="" disabled selected>Choose category</option>
+                        <option value="Bribery">Bribery</option>
+                        <option value="Fraud">Fraud</option>
+                        <option value="Abuse of Power">Abuse of Power</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- File Upload -->
+                <div class="mb-3">
+                    <label for="file" class="form-label">Attach a file (optional)</label>
+                    <input type="file" name="file" id="file" class="form-control" accept=".txt,image/*,audio/*,video/*">
+                    <small class="form-text text-muted">
+                        You can attach a photo, audio, video, or document that supports your tip.
+                    </small>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mb-3 text-center">
+                    <button type="submit" class="btn btn-primary px-4">
+                        <i class="bi bi-send-fill"></i> Submit Tip
+                    </button>
+                </div>
+
+                <div class="text-muted small text-center">
+                    🔒 We don’t track IP addresses or store personal identifiers.
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

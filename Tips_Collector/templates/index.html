@@ -1,0 +1,99 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Home | Anti-Corruption Tips{% endblock %}
+
+{% block content %}
+<style>
+  .hero-section {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    padding: 80px 30px;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-section h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .hero-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .hero-section .btn-submit {
+    margin-top: 30px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    border-radius: 50px;
+    background-color: white;
+    color: #007bff;
+    border: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+  }
+
+  .hero-section .btn-submit:hover {
+    background-color: #f1f1f1;
+  }
+
+  .info-section {
+    margin-top: 60px;
+    text-align: center;
+  }
+
+  .info-section .step {
+    padding: 30px 20px;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+  }
+
+  .info-section .step h4 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+
+  .info-section .step p {
+    color: #666;
+  }
+
+</style>
+
+<div class="hero-section">
+  <h2>🕵️ Submit Anti-Corruption Tips</h2>
+  <p>Your voice can bring accountability and change. Submit your anonymous tip — no names, no traces.</p>
+  <a href="{{ url_for('submit_tip') }}">
+    <button class="btn-submit">Submit a Tip</button>
+  </a>
+</div>
+
+<div class="container info-section">
+  <div class="row justify-content-center">
+    <div class="col-md-4 step">
+      <div class="emoji fs-1">📝</div>
+      <h4>Write Your Tip</h4>
+      <p>Describe what happened. You may include time, place, and details. All optional.</p>
+    </div>
+    <div class="col-md-4 step">
+      <div class="emoji fs-1">📁</div>
+      <h4>Add Evidence (Optional)</h4>
+      <p>Attach images, documents or audio to support your tip. We protect your uploads.</p>
+    </div>
+    <div class="col-md-4 step">
+      <div class="emoji fs-1">✅</div>
+      <h4>Submit Securely</h4>
+      <p>Click the button and you're done. Your identity is not stored, logged, or tracked.</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
