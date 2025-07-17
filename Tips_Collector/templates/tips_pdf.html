@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; font-size: 12px; }
+    h2 { text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h2>Tip Records</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>People</th>
+        <th>Category</th>
+        <th>Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tip in tips %}
+      <tr>
+        <td>{{ tip.id }}</td>
+        <td>{{ tip.corruption_type }}</td>
+        <td>{{ tip.location }}</td>
+        <td>{{ tip.date }}</td>
+        <td>{{ tip.people }}</td>
+        <td>{{ tip.tip_category }}</td>
+        <td>{{ tip.text }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
